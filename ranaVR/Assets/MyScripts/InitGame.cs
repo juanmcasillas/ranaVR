@@ -13,10 +13,10 @@ public class InitGame : MonoBehaviour
     void Awake()
     {
 
-        Debug.Log("Game started ---");
-        GameObject g;
-        disc1_pos = GameObject.Find("disc_1").transform.position;
-        disc1_rot = GameObject.Find("disc_1").transform.rotation;
+        //Debug.Log("Game started ---");
+        //GameObject g;
+        //disc1_pos = GameObject.Find("disc_1").transform.position;
+        //disc1_rot = GameObject.Find("disc_1").transform.rotation;
 
         
     }
@@ -29,8 +29,8 @@ public class InitGame : MonoBehaviour
 
     public void ResetPos()
     {
-        GameObject.Find("disc_1").transform.position = disc1_pos;
-        GameObject.Find("disc_1").transform.rotation = disc1_rot;
+        //GameObject.Find("disc_1").transform.position = disc1_pos;
+        //GameObject.Find("disc_1").transform.rotation = disc1_rot;
     }
 }
 

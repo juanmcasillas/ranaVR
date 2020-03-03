@@ -5,7 +5,7 @@ using UnityEngine;
 public class PressButton : MonoBehaviour
 {
 
-    public AudioSource audio;
+    public AudioSource myaudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class PressButton : MonoBehaviour
     public void YouPressedMe()
     {
         //audio.Play();
-        audio.PlayOneShot(audio.clip, 0.5F);
+        myaudio.PlayOneShot(myaudio.clip, 0.5F);
         Debug.Log("button Pressed");
         //InitGame n = GameObject.Find("manager").GetComponent<InitGame>();
         //n.ResetPos();
