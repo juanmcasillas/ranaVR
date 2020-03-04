@@ -1,0 +1,304 @@
+fileFormatVersion: 2
+guid: e62b3c9aff05fe54db5f83f8c495e375
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box
+    100002: //RootNode
+    100004: Box_Collider
+    100006: Bridge_L
+    100008: Bridge_L_hull_1
+    100010: Bridge_R
+    100012: Bridge_R_hull_1
+    100014: C1
+    100016: C2
+    100018: Camera
+    100020: CL4
+    100022: Collider_Holes
+    100024: CR4
+    100026: FB
+    100028: FM
+    100030: Frog
+    100032: Frog_Collider
+    100034: Frog_Mouth
+    100036: FT
+    100038: Handler_collider
+    100040: Internal_Shape
+    100042: L1
+    100044: L2
+    100046: L3
+    100048: L4
+    100050: Leg.001
+    100052: Leg.002
+    100054: Leg.003
+    100056: Leg.004
+    100058: Light
+    100060: Lower cap
+    100062: R1
+    100064: R2
+    100066: R3
+    100068: R4
+    100070: Support_L
+    100072: Support_R
+    100074: Upper cap
+    100076: Upper cap.F_collider
+    100078: Upper cap.L_collider
+    100080: Upper cap.R_collider
+    100082: upper_collider
+    100084: Whirl
+    100086: Whirl._collider
+    400000: Box
+    400002: //RootNode
+    400004: Box_Collider
+    400006: Bridge_L
+    400008: Bridge_L_hull_1
+    400010: Bridge_R
+    400012: Bridge_R_hull_1
+    400014: C1
+    400016: C2
+    400018: Camera
+    400020: CL4
+    400022: Collider_Holes
+    400024: CR4
+    400026: FB
+    400028: FM
+    400030: Frog
+    400032: Frog_Collider
+    400034: Frog_Mouth
+    400036: FT
+    400038: Handler_collider
+    400040: Internal_Shape
+    400042: L1
+    400044: L2
+    400046: L3
+    400048: L4
+    400050: Leg.001
+    400052: Leg.002
+    400054: Leg.003
+    400056: Leg.004
+    400058: Light
+    400060: Lower cap
+    400062: R1
+    400064: R2
+    400066: R3
+    400068: R4
+    400070: Support_L
+    400072: Support_R
+    400074: Upper cap
+    400076: Upper cap.F_collider
+    400078: Upper cap.L_collider
+    400080: Upper cap.R_collider
+    400082: upper_collider
+    400084: Whirl
+    400086: Whirl._collider
+    2000000: Camera
+    2100000: Green_Metallic
+    2100002: Red
+    2100004: Gold
+    2100006: DarkGreen
+    2100008: Collider
+    2100010: No Name
+    2300000: Box
+    2300002: Box_Collider
+    2300004: Bridge_L
+    2300006: Bridge_L_hull_1
+    2300008: Bridge_R
+    2300010: Bridge_R_hull_1
+    2300012: C1
+    2300014: C2
+    2300016: CL4
+    2300018: Collider_Holes
+    2300020: CR4
+    2300022: FB
+    2300024: FM
+    2300026: Frog_Collider
+    2300028: Frog_Mouth
+    2300030: FT
+    2300032: Handler_collider
+    2300034: Internal_Shape
+    2300036: L1
+    2300038: L2
+    2300040: L3
+    2300042: L4
+    2300044: Leg.001
+    2300046: Leg.002
+    2300048: Leg.003
+    2300050: Leg.004
+    2300052: Lower cap
+    2300054: R1
+    2300056: R2
+    2300058: R3
+    2300060: R4
+    2300062: Support_L
+    2300064: Support_R
+    2300066: Upper cap
+    2300068: Upper cap.F_collider
+    2300070: Upper cap.L_collider
+    2300072: Upper cap.R_collider
+    2300074: upper_collider
+    2300076: Whirl
+    2300078: Whirl._collider
+    3300000: Box
+    3300002: Box_Collider
+    3300004: Bridge_L
+    3300006: Bridge_L_hull_1
+    3300008: Bridge_R
+    3300010: Bridge_R_hull_1
+    3300012: C1
+    3300014: C2
+    3300016: CL4
+    3300018: Collider_Holes
+    3300020: CR4
+    3300022: FB
+    3300024: FM
+    3300026: Frog_Collider
+    3300028: Frog_Mouth
+    3300030: FT
+    3300032: Handler_collider
+    3300034: Internal_Shape
+    3300036: L1
+    3300038: L2
+    3300040: L3
+    3300042: L4
+    3300044: Leg.001
+    3300046: Leg.002
+    3300048: Leg.003
+    3300050: Leg.004
+    3300052: Lower cap
+    3300054: R1
+    3300056: R2
+    3300058: R3
+    3300060: R4
+    3300062: Support_L
+    3300064: Support_R
+    3300066: Upper cap
+    3300068: Upper cap.F_collider
+    3300070: Upper cap.L_collider
+    3300072: Upper cap.R_collider
+    3300074: upper_collider
+    3300076: Whirl
+    3300078: Whirl._collider
+    4300000: Internal_Shape
+    4300002: Support_L
+    4300004: Bridge_R
+    4300006: Bridge_L
+    4300008: Whirl._collider
+    4300010: Leg.001
+    4300012: Box
+    4300014: Lower cap
+    4300016: Upper cap
+    4300018: L4
+    4300020: L1
+    4300022: L2
+    4300024: L3
+    4300026: R1
+    4300028: R2
+    4300030: R3
+    4300032: R4
+    4300034: FB
+    4300036: FM
+    4300038: FT
+    4300040: C1
+    4300042: C2
+    4300044: CL4
+    4300046: CR4
+    4300048: Handler_collider
+    4300050: upper_collider
+    4300052: Upper cap.F_collider
+    4300054: Upper cap.L_collider
+    4300056: Frog_Collider
+    4300058: Frog_Mouth
+    4300060: Bridge_L_hull_1
+    4300062: Bridge_R_hull_1
+    4300064: Box_Collider
+    4300066: Collider_Holes
+    4300068: Whirl
+    4300070: Upper cap.R_collider
+    10800000: Light
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.01
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

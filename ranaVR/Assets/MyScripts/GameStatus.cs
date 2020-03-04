@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using VRTK.Prefabs.Locomotion.Teleporters;
+
 public class GameStatus : MonoBehaviour
 {
     public static GameStatus instance = null;
@@ -23,7 +25,10 @@ public class GameStatus : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public void Start()
+    {
 
+    }
 
     public static int AddScore(int score)
     {
@@ -48,7 +53,53 @@ public class GameStatus : MonoBehaviour
     public void Update()
     {
 
+        //Transform mgr = GameObject.Find("OVRPos").GetComponent<Transform>();
+        //Vector3 posX;
+        //Vector3 delta = new Vector3(1.0f, 0.0f, 0.0f);
+        //posX = mgr.localToWorldMatrix.MultiplyPoint(UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye));
+        //mgr.position = posX + delta;
+
+
+        
         OVRInput.Update();
+   
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft))
+        {
+
+            //UnityEngine.XR.InputTracking.disablePositionalTracking = true;
+            //TextMeshProUGUI ui_text = GameObject.Find(score_text_label).GetComponent<TextMeshProUGUI>();
+            Debug.Log("To the left");
+            TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
+            GameObject emptyGO = new GameObject();
+            emptyGO.transform.position = new Vector3(1.5f, 0.0f, 0.5f);
+            Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
+            f.Teleport(d);
+
+            /*
+            Debug.Log("To the left");
+            Camera CameraRig = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
+            CameraRig.transform.localRotation = Quaternion.Euler(CameraRig.transform.localRotation.eulerAngles -(Vector3.up * 20.0f));
+            */
+        }
+
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight))
+        {
+            Debug.Log("To the left");
+            TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
+            GameObject emptyGO = new GameObject();
+            emptyGO.transform.position = new Vector3(-1.5f, 0.0f, 0.5f);
+            Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
+            f.Teleport(d);
+
+
+            /*
+            Debug.Log("to the right");
+            Camera CameraRig = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
+            CameraRig.transform.localRotation = Quaternion.Euler(CameraRig.transform.localRotation.eulerAngles + (Vector3.up * 20.0f));
+            */
+        }
+
+
 
         if (OVRInput.Get(OVRInput.Button.One)) {
 
