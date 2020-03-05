@@ -14,12 +14,15 @@ public class GameStatus : MonoBehaviour
     private TextMeshProUGUI ui_text;
     private Transform trackingSpace;
 
+    private OVRCameraRig cameraRig;
+
     private void Awake()
     {
         if (instance == null) { 
             instance = this;
             instance.ui_text = GameObject.Find("score_text").GetComponent<TextMeshProUGUI>();
             instance.trackingSpace = GameObject.Find("TrackingSpace").GetComponent<Transform>();
+            instance.cameraRig = GameObject.Find("OVRCameraRig").GetComponent<OVRCameraRig>();
         }
         else if (instance != this)
             Destroy(gameObject);
@@ -85,13 +88,15 @@ public class GameStatus : MonoBehaviour
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
-            emptyGO.transform.position = new Vector3(2.0f, 0.0f, 0.5f);
+            emptyGO.transform.position = new Vector3(3.1f, 0.25f, -2.525f);
             emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
 
             Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
             f.Teleport(d);
             f.ApplyDestinationRotation = false;
 
+            //GameObject.Find("DD").transform.position = instance.cameraRig.centerEyeAnchor.position;
+            //GameObject.Find("XX").transform.position = new Vector3(3.1f, 0.05f, -2.525f);
             /*
             Debug.Log("To the left");
             Camera CameraRig = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
@@ -105,13 +110,20 @@ public class GameStatus : MonoBehaviour
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
-            emptyGO.transform.position = new Vector3(-2.0f, 0.0f, 0.5f);
+            emptyGO.transform.position = new Vector3(-3.66f, 0.25f, -4.07f);
             emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
+
+            // not needed to set the layer, but the HEIGHT right.
+            //emptyGO.layer = LayerMask.NameToLayer("Teleportable");
+            //emptyGO.layer = 10;
+
             Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
             f.Teleport(d);
             f.ApplyDestinationRotation = false;
 
-
+            // debug positions
+            //GameObject.Find("DD").transform.position = instance.cameraRig.centerEyeAnchor.position;
+            //GameObject.Find("XX").transform.position = emptyGO.transform.position;
 
             /*
             Debug.Log("to the right");
