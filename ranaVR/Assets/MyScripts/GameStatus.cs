@@ -27,7 +27,20 @@ public class GameStatus : MonoBehaviour
 
     public void Start()
     {
+     
+        TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
+        GameObject emptyGO = new GameObject();
+        f.ApplyDestinationRotation = true;
 
+
+        emptyGO.transform.position = new Vector3(-1.44f, 0.0f, 0.0f);
+        //emptyGO.transform.rotation = Quaternion.Euler(Vector3.up * 180);
+
+        emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
+
+        Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
+        f.Teleport(d);
+        f.ApplyDestinationRotation = false;
     }
 
     public static int AddScore(int score)
@@ -68,12 +81,16 @@ public class GameStatus : MonoBehaviour
 
             //UnityEngine.XR.InputTracking.disablePositionalTracking = true;
             //TextMeshProUGUI ui_text = GameObject.Find(score_text_label).GetComponent<TextMeshProUGUI>();
-            Debug.Log("To the left");
+            Debug.Log("To the right");
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
+            f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
-            emptyGO.transform.position = new Vector3(1.5f, 0.0f, 0.5f);
+            emptyGO.transform.position = new Vector3(2.0f, 0.0f, 0.5f);
+            emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
+
             Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
             f.Teleport(d);
+            f.ApplyDestinationRotation = false;
 
             /*
             Debug.Log("To the left");
@@ -86,10 +103,14 @@ public class GameStatus : MonoBehaviour
         {
             Debug.Log("To the left");
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
+            f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
-            emptyGO.transform.position = new Vector3(-1.5f, 0.0f, 0.5f);
+            emptyGO.transform.position = new Vector3(-2.0f, 0.0f, 0.5f);
+            emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
             Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
             f.Teleport(d);
+            f.ApplyDestinationRotation = false;
+
 
 
             /*
