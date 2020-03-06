@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using VRTK.Prefabs.Locomotion.Teleporters;
+using UnityEngine.SceneManagement;
 
 public class GameStatus : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameStatus : MonoBehaviour
     public int score = 0;
 
     private bool button_a_pressed = false;
+    private bool button_b_pressed = false;
     private TextMeshProUGUI ui_text;
     private Transform trackingSpace;
 
@@ -30,20 +32,24 @@ public class GameStatus : MonoBehaviour
 
     public void Start()
     {
-     
+
+        Debug.Log("To the center");
         TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
-        GameObject emptyGO = new GameObject();
         f.ApplyDestinationRotation = true;
+        GameObject emptyGO = new GameObject();
+        //emptyGO.transform.position = new Vector3(3.1f, 0.25f, -2.525f);
+        //emptyGO.transform.position = GameObject.Find("BaseR").GetComponent<Transform>().position + new Vector3(0.0f, 1.0f, 0.0f);
 
-
-        emptyGO.transform.position = new Vector3(-1.44f, 0.0f, 0.0f);
-        //emptyGO.transform.rotation = Quaternion.Euler(Vector3.up * 180);
-
+        Transform point_to = GameObject.Find("BaseC").GetComponent<Transform>();
+        emptyGO.transform.position = point_to.position + new Vector3(0.0f, point_to.localScale.y, 0.0f);
         emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
+
 
         Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
         f.Teleport(d);
         f.ApplyDestinationRotation = false;
+
+
     }
 
     public static int AddScore(int score)
@@ -88,15 +94,20 @@ public class GameStatus : MonoBehaviour
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
-            emptyGO.transform.position = new Vector3(3.1f, 0.25f, -2.525f);
+            //emptyGO.transform.position = new Vector3(3.1f, 0.25f, -2.525f);
+            //emptyGO.transform.position = GameObject.Find("BaseR").GetComponent<Transform>().position + new Vector3(0.0f, 1.0f, 0.0f);
+
+            Transform point_to = GameObject.Find("BaseR").GetComponent<Transform>();
+            emptyGO.transform.position = point_to.position + new Vector3(0.0f, point_to.localScale.y, 0.0f);
             emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
+
 
             Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
             f.Teleport(d);
             f.ApplyDestinationRotation = false;
 
             //GameObject.Find("DD").transform.position = instance.cameraRig.centerEyeAnchor.position;
-            //GameObject.Find("XX").transform.position = new Vector3(3.1f, 0.05f, -2.525f);
+            //GameObject.Find("XX").transform.position = emptyGO.transform.position;
             /*
             Debug.Log("To the left");
             Camera CameraRig = GameObject.Find("CenterEyeAnchor").GetComponent<Camera>();
@@ -110,7 +121,8 @@ public class GameStatus : MonoBehaviour
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
-            emptyGO.transform.position = new Vector3(-3.66f, 0.25f, -4.07f);
+            Transform point_to = GameObject.Find("BaseL").GetComponent<Transform>();
+            emptyGO.transform.position = point_to.position + new Vector3(0.0f, point_to.localScale.y, 0.0f);
             emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
 
             // not needed to set the layer, but the HEIGHT right.
@@ -131,10 +143,41 @@ public class GameStatus : MonoBehaviour
             CameraRig.transform.localRotation = Quaternion.Euler(CameraRig.transform.localRotation.eulerAngles + (Vector3.up * 20.0f));
             */
         }
+        if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown))
+        {
+            Debug.Log("To the back");
+            TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
+            f.ApplyDestinationRotation = true;
+            GameObject emptyGO = new GameObject();
+            Transform point_to = GameObject.Find("BaseC").GetComponent<Transform>();
+            emptyGO.transform.position = point_to.position + new Vector3(0.0f, point_to.localScale.y, 0.0f);
+            emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
+
+
+            Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
+            f.Teleport(d);
+            f.ApplyDestinationRotation = false;
+        }
 
 
 
-        if (OVRInput.Get(OVRInput.Button.One)) {
+        if (OVRInput.Get(OVRInput.Button.Two))
+        {
+
+            instance.button_b_pressed = true;
+            return;
+        }
+        else
+        {
+            if (!instance.button_b_pressed)
+            {
+                return; // button not pressed
+            }
+            instance.button_b_pressed = false;
+            SceneManager.LoadScene("Main_Menu");
+        }
+
+            if (OVRInput.Get(OVRInput.Button.One)) {
 
             instance.button_a_pressed = true;
             return;
@@ -175,4 +218,8 @@ public class GameStatus : MonoBehaviour
     {
         OVRInput.FixedUpdate();
     }
+
+
+
+
 }

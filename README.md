@@ -16,3 +16,11 @@ https://github.com/ExtendRealityLtd/VRTK.Tutorials.OculusIntegration
 
 git clone --recurse-submodules --remote-submodules  https://github.com/juanmcasillas/ranaVR.git
 
+# Feature Requests
+
+	* Remove the Initial Window Selector
+	* Create Main Menu, Game and Win Scenes
+	
+# UI and VR
+
+https://arvrjourney.com/how-to-build-vr-uis-with-unity-and-oculus-rift-part-2-69e31b32dd82
