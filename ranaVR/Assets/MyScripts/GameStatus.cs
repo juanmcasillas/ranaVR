@@ -10,11 +10,14 @@ public class GameStatus : MonoBehaviour
 {
     public static GameStatus instance = null;
     public int score = 0;
+    public int coins = 6;
 
     private bool button_a_pressed = false;
     private bool button_b_pressed = false;
 
-    private TextMeshProUGUI ui_text;
+    private TextMeshProUGUI score_text;
+    private TextMeshProUGUI coins_text;
+
     private Transform trackingSpace;
 
     private OVRCameraRig cameraRig;
@@ -23,7 +26,8 @@ public class GameStatus : MonoBehaviour
     {
         if (instance == null) { 
             instance = this;
-            instance.ui_text = GameObject.Find("score_text").GetComponent<TextMeshProUGUI>();
+            instance.score_text = GameObject.Find("score_text").GetComponent<TextMeshProUGUI>();
+            instance.coins_text = GameObject.Find("coins_text").GetComponent<TextMeshProUGUI>();
             instance.trackingSpace = GameObject.Find("TrackingSpace").GetComponent<Transform>();
             instance.cameraRig = GameObject.Find("OVRCameraRig").GetComponent<OVRCameraRig>();
         }
@@ -34,7 +38,7 @@ public class GameStatus : MonoBehaviour
     public void Start()
     {
 
-        Debug.Log("To the center");
+        //Debug.Log("To the center");
         TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
         f.ApplyDestinationRotation = true;
         GameObject emptyGO = new GameObject();
@@ -50,7 +54,9 @@ public class GameStatus : MonoBehaviour
         f.Teleport(d);
         f.ApplyDestinationRotation = false;
 
-
+        // init the TV :D
+        instance.coins_text.text = instance.coins.ToString();
+        instance.score_text.text = instance.score.ToString();
     }
 
     public static int AddScore(int score)
@@ -63,7 +69,7 @@ public class GameStatus : MonoBehaviour
 
         //Debug.Log("Score: " + ui_text.text + "|" + instance.score);
         //ui_text.text = "Score: " + instance.score;
-        instance.ui_text.text = instance.score.ToString();
+        instance.score_text.text = instance.score.ToString();
         return instance.score;
     }
 
@@ -72,6 +78,12 @@ public class GameStatus : MonoBehaviour
         return instance.score;
     }
 
+    public static int RemoveCoin(int coins=1)
+    {
+        instance.coins -= coins;
+        instance.coins_text.text = instance.coins.ToString();
+        return instance.coins;
+    }
 
     public void Update()
     {
@@ -81,7 +93,7 @@ public class GameStatus : MonoBehaviour
         //Vector3 delta = new Vector3(1.0f, 0.0f, 0.0f);
         //posX = mgr.localToWorldMatrix.MultiplyPoint(UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye));
         //mgr.position = posX + delta;
-
+        //UnityEngine.XR.InputTracking.disablePositionalTracking = true;
 
 
         OVRInput.Update();
@@ -104,7 +116,7 @@ public class GameStatus : MonoBehaviour
 
             //UnityEngine.XR.InputTracking.disablePositionalTracking = true;
             //TextMeshProUGUI ui_text = GameObject.Find(score_text_label).GetComponent<TextMeshProUGUI>();
-            Debug.Log("To the right");
+            // Debug.Log("To the right");
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
@@ -131,7 +143,7 @@ public class GameStatus : MonoBehaviour
 
         if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickRight))
         {
-            Debug.Log("To the left");
+            //Debug.Log("To the left");
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
@@ -159,7 +171,7 @@ public class GameStatus : MonoBehaviour
         }
         if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickDown))
         {
-            Debug.Log("To the back");
+            //Debug.Log("To the back");
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
@@ -202,6 +214,13 @@ public class GameStatus : MonoBehaviour
             if (instance.button_a_pressed)
             {
                 instance.button_a_pressed = false;
+
+                if (RemoveCoin() < 0)
+                {
+                    // go to game over.
+                    SceneManager.LoadScene("Main_Menu");
+                }
+
                 //Debug.Log("Button A has been pressed/released");
                 //OVRInput provides touch position and orientation data through GetLocalControllerPosition() and GetLocalControllerRotation(), which return a Vector3 and Quaternion, respectively.
                 // require the tracking space
@@ -220,7 +239,6 @@ public class GameStatus : MonoBehaviour
                 coin.transform.rotation = coin.transform.rotation * localRotation;
 
                 // toss the coin to upper.
-
                 coin.GetComponent<float_respawn>().start_float();
 
             }
