@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: 29520a7af367aec46b87ccde1c50bd40
   - enabled: 1
-    path: Assets/Scenes/Game.unity
-    guid: 88d5be26f26ba804994609f9e5f2dca8
-  - enabled: 1
     path: Assets/Scenes/Cheat.unity
     guid: 084a4bb60c61d7b40ae2fac3b05f1ac3
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 88d5be26f26ba804994609f9e5f2dca8
   - enabled: 1
     path: Assets/Scenes/Game_Over.unity
     guid: 5f347592c40138940892653b36b917f3

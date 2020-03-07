@@ -166,6 +166,9 @@ MonoBehaviour:
   ValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1241,6 +1244,9 @@ MonoBehaviour:
   ValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1564,6 +1570,9 @@ MonoBehaviour:
   ValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1630,6 +1639,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -2688,7 +2700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &578740595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4440,6 +4452,9 @@ MonoBehaviour:
   ValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -4506,6 +4521,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -5933,6 +5951,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1398154251}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1417995473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417995474}
+  m_Layer: 0
+  m_Name: Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417995474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417995473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1452408489}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1424848052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6201,7 +6250,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1417995474}
     m_Modifications:
     - target: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_Name
@@ -6253,7 +6302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6305,7 +6354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: _reorientHMDOnControllerRecenter
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: LateControllerUpdate
@@ -6405,10 +6454,13 @@ MonoBehaviour:
   headset: {fileID: 1452408483}
   headsetCamera: {fileID: 1452408482}
   headsetVelocityTracker: {fileID: 1452408498}
+  supplementHeadsetCameras: {fileID: 0}
   leftController: {fileID: 1452408481}
   leftControllerVelocityTracker: {fileID: 1452408497}
+  leftControllerHapticProcess: {fileID: 0}
   rightController: {fileID: 1452408480}
   rightControllerVelocityTracker: {fileID: 1452408487}
+  rightControllerHapticProcess: {fileID: 0}
 --- !u!114 &1452408487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6423,6 +6475,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackedGameObject: {fileID: 1452408480}
   relativeTo: {fileID: 1452408484}
+--- !u!4 &1452408489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1452408479}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1452408492 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 126d619cf4daa52469682f85c1378b4a,
@@ -6436,7 +6494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1452408485}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cb15c38c6ff3924887da219d0a1a05f, type: 3}
   m_Name: 
@@ -7161,6 +7219,88 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1610720711}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1620685472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620685475}
+  - component: {fileID: 1620685474}
+  - component: {fileID: 1620685473}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1620685473
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620685472}
+  m_Enabled: 1
+--- !u!20 &1620685474
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620685472}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 2
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 26.991467
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 7a5feaecdc81d5b4498de5db0d158eac, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1620685475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620685472}
+  m_LocalRotation: {x: 0.2989829, y: -0, z: -0, w: 0.9542585}
+  m_LocalPosition: {x: 1.327, y: 1.882, z: 6.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 34.793003, y: 0, z: 0}
 --- !u!1 &1620826063
 GameObject:
   m_ObjectHideFlags: 0
@@ -7308,6 +7448,76 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6221495851262579817, guid: afb688ef596d1dc4ab07ef3c3b2b6967, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: afb688ef596d1dc4ab07ef3c3b2b6967, type: 3}
+--- !u!1 &1653467088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1653467089}
+  - component: {fileID: 1653467091}
+  - component: {fileID: 1653467090}
+  m_Layer: 9
+  m_Name: TheCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1653467089
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653467088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1765302302}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7, y: 1191}
+  m_SizeDelta: {x: 1600, y: 1600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1653467090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653467088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 8400000, guid: 7a5feaecdc81d5b4498de5db0d158eac, type: 2}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &1653467091
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653467088}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1659355296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7713,6 +7923,7 @@ RectTransform:
   - {fileID: 811057151}
   - {fileID: 1697624527}
   - {fileID: 2036749196}
+  - {fileID: 1653467089}
   m_Father: {fileID: 266018229697167708}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7902,6 +8113,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  ValueUnchanged:
     m_PersistentCalls:
       m_Calls: []
   Deactivated:
@@ -8220,6 +8434,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  ValueUnchanged:
     m_PersistentCalls:
       m_Calls: []
   Deactivated:

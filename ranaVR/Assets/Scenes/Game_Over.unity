@@ -166,6 +166,9 @@ MonoBehaviour:
   ValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -223,6 +226,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  ValueUnchanged:
     m_PersistentCalls:
       m_Calls: []
   Deactivated:
@@ -342,7 +348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &282802071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,6 +1151,9 @@ MonoBehaviour:
   ValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1211,6 +1220,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1323,6 +1335,9 @@ MonoBehaviour:
   ValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1389,6 +1404,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ValueUnchanged:
+    m_PersistentCalls:
+      m_Calls: []
   Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1447,6 +1465,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  ValueUnchanged:
     m_PersistentCalls:
       m_Calls: []
   Deactivated:
@@ -3673,10 +3694,13 @@ MonoBehaviour:
   headset: {fileID: 1727475697}
   headsetCamera: {fileID: 1727475696}
   headsetVelocityTracker: {fileID: 0}
+  supplementHeadsetCameras: {fileID: 0}
   leftController: {fileID: 1727475695}
   leftControllerVelocityTracker: {fileID: 0}
+  leftControllerHapticProcess: {fileID: 0}
   rightController: {fileID: 1727475692}
   rightControllerVelocityTracker: {fileID: 0}
+  rightControllerHapticProcess: {fileID: 0}
 --- !u!114 &1727475701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,6 +4544,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   ValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  ValueUnchanged:
     m_PersistentCalls:
       m_Calls: []
   Deactivated:

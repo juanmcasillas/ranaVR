@@ -52,6 +52,9 @@ public class GameStatus : MonoBehaviour
         f.Teleport(d);
         f.ApplyDestinationRotation = false;
 
+        GameObject.Find("Pos").GetComponent<Transform>().position = emptyGO.transform.position;
+        GameObject.Find("Pos").GetComponent<Transform>().rotation = emptyGO.transform.rotation;
+
         // init the TV :D
         instance.coins_text.text = GameState.instance.coins.ToString();
         instance.score_text.text = GameState.instance.score.ToString();
@@ -130,6 +133,9 @@ public class GameStatus : MonoBehaviour
             f.Teleport(d);
             f.ApplyDestinationRotation = false;
 
+            GameObject.Find("Pos").GetComponent<Transform>().position = emptyGO.transform.position;
+            GameObject.Find("Pos").GetComponent<Transform>().rotation = emptyGO.transform.rotation;
+
             //GameObject.Find("DD").transform.position = instance.cameraRig.centerEyeAnchor.position;
             //GameObject.Find("XX").transform.position = emptyGO.transform.position;
             /*
@@ -157,6 +163,9 @@ public class GameStatus : MonoBehaviour
             f.Teleport(d);
             f.ApplyDestinationRotation = false;
 
+            GameObject.Find("Pos").GetComponent<Transform>().position = emptyGO.transform.position;
+            GameObject.Find("Pos").GetComponent<Transform>().rotation = emptyGO.transform.rotation;
+
             // debug positions
             //GameObject.Find("DD").transform.position = instance.cameraRig.centerEyeAnchor.position;
             //GameObject.Find("XX").transform.position = emptyGO.transform.position;
@@ -177,6 +186,8 @@ public class GameStatus : MonoBehaviour
             emptyGO.transform.position = point_to.position + new Vector3(0.0f, point_to.localScale.y, 0.0f);
             emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
 
+            GameObject.Find("Pos").GetComponent<Transform>().position = emptyGO.transform.position;
+            GameObject.Find("Pos").GetComponent<Transform>().rotation = emptyGO.transform.rotation;
 
             Zinnia.Data.Type.TransformData d = new Zinnia.Data.Type.TransformData(emptyGO.transform);
             f.Teleport(d);
