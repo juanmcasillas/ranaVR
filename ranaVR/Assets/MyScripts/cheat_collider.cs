@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class cheat_collider: MonoBehaviour
@@ -16,7 +15,9 @@ public class cheat_collider: MonoBehaviour
         {
             //Debug.Log("collision go to play MetalBang2Sound");
             //AudioSource aud = GameObject.Find("MetalBang2Sound").GetComponent<AudioSource>();
-            SceneManager.LoadScene("Main_Menu");
+            //GameState.instance.score = 100;
+            SceneManager.LoadScene("Cheat");
+     
         }
     }
 }

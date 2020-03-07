@@ -702,6 +702,7 @@ public class OvrAvatar : MonoBehaviour
                 }
                 catch (Exception e)
                 {
+                    Debug.LogError(e);
                     assetsFinishedLoading = true;
                     throw; // rethrow the original exception to preserve callstack
                 }

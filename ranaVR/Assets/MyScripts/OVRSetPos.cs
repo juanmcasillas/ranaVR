@@ -39,6 +39,7 @@ public class OVRSetPos : MonoBehaviour
     {
         Transform root = CameraRig.trackingSpace;
         Transform centerEye = CameraRig.centerEyeAnchor;
+        /*
         if (false)
         {
             Vector3 prevPos = root.position;
@@ -49,5 +50,6 @@ public class OVRSetPos : MonoBehaviour
             root.position = prevPos;
             root.rotation = prevRot;
         }
+        */
     }
 }

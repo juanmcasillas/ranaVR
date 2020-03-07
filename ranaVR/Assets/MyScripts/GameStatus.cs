@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 public class GameStatus : MonoBehaviour
 {
     public static GameStatus instance = null;
-    public int score = 0;
-    public int coins = 6;
 
     private bool button_a_pressed = false;
     private bool button_b_pressed = false;
@@ -55,13 +53,13 @@ public class GameStatus : MonoBehaviour
         f.ApplyDestinationRotation = false;
 
         // init the TV :D
-        instance.coins_text.text = instance.coins.ToString();
-        instance.score_text.text = instance.score.ToString();
+        instance.coins_text.text = GameState.instance.coins.ToString();
+        instance.score_text.text = GameState.instance.score.ToString();
     }
 
     public static int AddScore(int score)
     {
-        instance.score += score;
+        GameState.instance.score += score;
 
         //Debug.Log("Score: " + instance.score);
         //TextMeshProUGUI ui_text = GameObject.Find(score_text_label).GetComponent<TextMeshProUGUI>();
@@ -69,20 +67,20 @@ public class GameStatus : MonoBehaviour
 
         //Debug.Log("Score: " + ui_text.text + "|" + instance.score);
         //ui_text.text = "Score: " + instance.score;
-        instance.score_text.text = instance.score.ToString();
-        return instance.score;
+        instance.score_text.text = GameState.instance.score.ToString();
+        return GameState.instance.score;
     }
 
-    public static int  GetScore()
+    public static int GetScore()
     {
-        return instance.score;
+        return GameState.instance.score;
     }
 
     public static int RemoveCoin(int coins=1)
     {
-        instance.coins -= coins;
-        instance.coins_text.text = instance.coins.ToString();
-        return instance.coins;
+        GameState.instance.coins -= coins;
+        instance.coins_text.text = GameState.instance.coins.ToString();
+        return GameState.instance.coins;
     }
 
     public void Update()
@@ -197,7 +195,6 @@ public class GameStatus : MonoBehaviour
             {
                 instance.button_b_pressed = false;
                 SceneManager.LoadScene("Main_Menu");
-
             }
         }
 
@@ -215,10 +212,10 @@ public class GameStatus : MonoBehaviour
             {
                 instance.button_a_pressed = false;
 
-                if (RemoveCoin() < 0)
+                if (RemoveCoin() <= 0)
                 {
                     // go to game over.
-                    SceneManager.LoadScene("Main_Menu");
+                    SceneManager.LoadScene("Game_Over");
                 }
 
                 //Debug.Log("Button A has been pressed/released");
