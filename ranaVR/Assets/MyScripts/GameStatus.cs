@@ -13,6 +13,7 @@ public class GameStatus : MonoBehaviour
 
     private bool button_a_pressed = false;
     private bool button_b_pressed = false;
+
     private TextMeshProUGUI ui_text;
     private Transform trackingSpace;
 
@@ -82,9 +83,22 @@ public class GameStatus : MonoBehaviour
         //mgr.position = posX + delta;
 
 
-        
+
         OVRInput.Update();
-   
+
+        // tooltips
+        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+        {
+            GameObject.Find("OculusTouchForQuestAndRiftS_Right").GetComponent<MeshRenderer>().enabled = true;
+            GameObject.Find("ControllerTooltips").GetComponent<VRTK.VRTK_ControllerTooltips>().ToggleTips(true);
+            GameObject.Find("ControllerTooltips").GetComponent<VRTK.VRTK_ControllerTooltips>().ToggleTips(false, VRTK.VRTK_ControllerTooltips.TooltipButtons.StartMenuTooltip);
+            GameObject.Find("ControllerTooltips").GetComponent<VRTK.VRTK_ControllerTooltips>().ToggleTips(false, VRTK.VRTK_ControllerTooltips.TooltipButtons.TouchpadTwoTooltip);
+        }
+        else
+        {
+            GameObject.Find("OculusTouchForQuestAndRiftS_Right").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.Find("ControllerTooltips").GetComponent<VRTK.VRTK_ControllerTooltips>().ToggleTips(false);
+        }
         if (OVRInput.Get(OVRInput.Button.PrimaryThumbstickLeft))
         {
 
@@ -97,7 +111,7 @@ public class GameStatus : MonoBehaviour
             //emptyGO.transform.position = new Vector3(3.1f, 0.25f, -2.525f);
             //emptyGO.transform.position = GameObject.Find("BaseR").GetComponent<Transform>().position + new Vector3(0.0f, 1.0f, 0.0f);
 
-            Transform point_to = GameObject.Find("BaseR").GetComponent<Transform>();
+            Transform point_to = GameObject.Find("BaseL").GetComponent<Transform>();
             emptyGO.transform.position = point_to.position + new Vector3(0.0f, point_to.localScale.y, 0.0f);
             emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
 
@@ -121,7 +135,7 @@ public class GameStatus : MonoBehaviour
             TeleporterFacade f = GameObject.Find("Teleporter.Instant").GetComponent<TeleporterFacade>();
             f.ApplyDestinationRotation = true;
             GameObject emptyGO = new GameObject();
-            Transform point_to = GameObject.Find("BaseL").GetComponent<Transform>();
+            Transform point_to = GameObject.Find("BaseR").GetComponent<Transform>();
             emptyGO.transform.position = point_to.position + new Vector3(0.0f, point_to.localScale.y, 0.0f);
             emptyGO.transform.LookAt(GameObject.Find("FrogBox").GetComponent<Transform>());
 
@@ -160,57 +174,56 @@ public class GameStatus : MonoBehaviour
         }
 
 
-
+        // B button. Go to main menu
         if (OVRInput.Get(OVRInput.Button.Two))
         {
-
             instance.button_b_pressed = true;
-            return;
         }
         else
         {
-            if (!instance.button_b_pressed)
+            if (instance.button_b_pressed)
             {
-                return; // button not pressed
+                instance.button_b_pressed = false;
+                SceneManager.LoadScene("Main_Menu");
+
             }
-            instance.button_b_pressed = false;
-            SceneManager.LoadScene("Main_Menu");
         }
 
-            if (OVRInput.Get(OVRInput.Button.One)) {
+
+        // A button. Create some coins here
+
+        if (OVRInput.Get(OVRInput.Button.One))
+        {
 
             instance.button_a_pressed = true;
-            return;
         }
         else
         {
-            if (!instance.button_a_pressed)
+            if (instance.button_a_pressed)
             {
-                return; // button not pressed
+                instance.button_a_pressed = false;
+                //Debug.Log("Button A has been pressed/released");
+                //OVRInput provides touch position and orientation data through GetLocalControllerPosition() and GetLocalControllerRotation(), which return a Vector3 and Quaternion, respectively.
+                // require the tracking space
+                //Vector3 pos = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
+                //Quaternion rot = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
+
+                Vector3 pos = instance.trackingSpace.TransformPoint(OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch));
+                Vector3 rot = instance.trackingSpace.TransformDirection(OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch).eulerAngles);
+
+                GameObject coin = (GameObject)Instantiate(Resources.Load("coin"));
+                coin.transform.position = pos;
+                coin.transform.rotation = Quaternion.Euler(rot);
+
+                // rotate the coin
+                Quaternion localRotation = Quaternion.Euler(90, 0f, 0f);
+                coin.transform.rotation = coin.transform.rotation * localRotation;
+
+                // toss the coin to upper.
+
+                coin.GetComponent<float_respawn>().start_float();
+
             }
-
-            instance.button_a_pressed = false;
-            //Debug.Log("Button A has been pressed/released");
-            //OVRInput provides touch position and orientation data through GetLocalControllerPosition() and GetLocalControllerRotation(), which return a Vector3 and Quaternion, respectively.
-            // require the tracking space
-            //Vector3 pos = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
-            //Quaternion rot = OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch);
-
-
-            Vector3 pos = instance.trackingSpace.TransformPoint(OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch));
-            Vector3 rot = instance.trackingSpace.TransformDirection(OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch).eulerAngles);
-       
-            GameObject coin = (GameObject)Instantiate(Resources.Load("coin"));
-            coin.transform.position = pos;
-            coin.transform.rotation = Quaternion.Euler(rot);
-
-            // rotate the coin
-            Quaternion localRotation = Quaternion.Euler(90, 0f, 0f);
-            coin.transform.rotation = coin.transform.rotation * localRotation;
-
-            // toss the coin to upper.
-
-            coin.GetComponent<float_respawn>().start_float();
         }
     }
 

@@ -24,3 +24,8 @@ git clone --recurse-submodules --remote-submodules  https://github.com/juanmcasi
 # UI and VR
 
 https://arvrjourney.com/how-to-build-vr-uis-with-unity-and-oculus-rift-part-2-69e31b32dd82
+
+
+# advanced things with VRTK
+
+https://www.raywenderlich.com/2163461-advanced-vr-interactions-in-unity-tutorial
