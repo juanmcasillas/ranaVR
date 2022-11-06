@@ -1,6 +1,8 @@
 # ranaVR
 The game of the "Rana" in VR for oculus Rift S, done in Unity
 
+<img src="images/render.jpg"></img>
+
 # NOTES
 
 https://blenderartists.org/t/v-hacd-tool-for-creating-accurate-convex-collision-meshes-for-real-time-physics-in-games-etc/1156822
