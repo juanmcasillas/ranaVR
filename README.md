@@ -1,7 +1,7 @@
 # ranaVR
 The game of the "Rana" in VR for oculus Rift S, done in Unity
 
-<img src="images/render.jpg"></img>
+<img src="Images/render.png"></img>
 
 # NOTES
 
